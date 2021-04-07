@@ -1,0 +1,100 @@
+:root {
+  font-size: 18px;
+  color: black;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    color:blueviolet;
+}
+
+.navbar {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  border-bottom: 1px solid #ccc;
+  padding: 10px;
+}
+
+.nav a {
+  display: inline-block;
+  padding: 5px 10px;
+}
+
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.intro {
+  padding: 100px 0 30px 0;
+  font-size: 1.7rem;
+  max-width: 60%;
+}
+
+.button {
+  display: inline-block;
+  padding: 10px 20px;
+  background: tomato;
+  color: white;
+}
+
+.form {
+  max-width: 70%;
+}
+
+.input {
+  width: 100%;
+  display: block;
+  padding: 10px;
+  font-size: 1.2rem;
+  font-family: inherit;
+  border: 1px solid #ccc;
+  margin-bottom: 20px;
+}
+
+.btn {
+    display: inline-block;
+    background: tomato;
+    color: white;
+    font-size: 1.2rem;
+    border: none;
+    padding: 10px 20px;
+}
+
+
+.function {
+  display: flex;
+  justify-content: space-between;
+  max-width: 60%;
+  padding: 10px;
+  border-bottom: 1px solid black;
+  align-items: center;
+}
+
+
+.post {
+  font-size: 1.2rem;
+}
+
+.delete {
+  display: inline-block;
+  padding: 5px 10px;
+  background-color: red;
+  color: #fff;
+  
+}
