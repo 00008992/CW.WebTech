@@ -6,5 +6,5 @@ block content
 
     each post in posts 
       div.function
-        a.post(href='/posts/detail')= post 
+        a.post(href=`/posts/${ post.id }`) #{ post.title }
         a.delete(href='#') delete 

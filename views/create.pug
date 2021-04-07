@@ -4,6 +4,12 @@ block content
   div.container
     h1 Create post 
 
+    if error
+      p.err Error ! form should not be empty
+
+    if success
+      p.notification Your post is created, good job!
+
     form.form(action="/create" method='POST')
       label Tile 
       input.input(type="text" name='title')
