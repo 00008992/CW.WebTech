@@ -6,7 +6,7 @@ In order to run this application you should follow the list step by step that is
 
 1. Clone this repositery
 ```bash
-git clone 
+git clone https://github.com/00008992/CW.WebTech.git
 
 ```
 
@@ -26,4 +26,6 @@ node app
 - pug.js
 
 ### Web application repository on github
-[link to github repo] 
+[link to github repo](https://github.com/00008992/CW.WebTech.git)
+
+

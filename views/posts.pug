@@ -7,4 +7,6 @@ block content
     each post in posts 
       div.function
         a.post(href=`/posts/${ post.id }`) #{ post.title }
-        a.delete(href='#') delete 
+        a.delete(href=`/posts/${ post.id }/delete`) delete 
+        if !post.archive
+          a.archive(href=`/posts/${ post.id }/archive`) Archive

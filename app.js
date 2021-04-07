@@ -37,6 +37,7 @@ app.post('/create', (req, res) => {
         name: name,
         surname: surname,
         description: description,
+        archive: false
       })
 
       fs.writeFile('./data/posts.json', JSON.stringify(posts), err => {
@@ -46,6 +47,17 @@ app.post('/create', (req, res) => {
       })
     })
   }
+})
+
+app.get('/api/v1/posts', (req, res) => {
+
+  fs.readFile('./data/posts.json', (err,data) => {
+    if (err) throw err
+
+    const posts = JSON.parse(data)
+
+    res.json(posts)
+  })
 })
 
 
@@ -58,9 +70,25 @@ app.get('/posts', (req, res) => {
 
     const posts = JSON.parse(data)
 
-    res.render('posts', { posts: posts })
+    const filteredPosts = posts.filter(post => post.archive == false)
+
+    res.render('posts', { posts: filteredPosts })
   })
 })
+
+app.get('/archive', (req, res) => {
+
+  fs.readFile('./data/posts.json', (err, data) => {
+    if (err) throw err
+
+    const posts = JSON.parse(data)
+
+    const filteredPosts = posts.filter(post => post.archive == true)
+
+    res.render('posts', { posts: filteredPosts })
+  })
+})
+
 
 app.get('/posts/:id', (req, res) => {
     const id = req.params.id
@@ -75,6 +103,48 @@ app.get('/posts/:id', (req, res) => {
         res.render('detail', { post: post })
       })
 })
+
+app.get('/posts/:id/delete', (req, res) => {
+  const id = req.params.id
+
+  fs.readFile('./data/posts.json', (err,data) => {
+    if (err) throw err
+
+    const posts = JSON.parse(data)
+
+    const filteredPosts = posts.filter(post => post.id !== id)
+    
+    fs.writeFile('./data/posts.json', JSON.stringify(filteredPosts), err => {
+      if (err) throw err
+      
+      res.redirect('/posts')
+    })
+  })
+})
+
+app.get('/posts/:id/archive', (req, res) => {
+  const id = req.params.id
+
+  fs.readFile('./data/posts.json', (err,data) => {
+    if (err) throw err
+
+    const posts = JSON.parse(data)
+
+    const post = posts.filter(post => post.id == req.params.id)[0]
+    const postIdx = posts.indexOf(post)
+    const splicedPost = posts.splice(postIdx, 1)[0]
+    splicedPost.archive = true
+    posts.push(splicedPost)
+
+
+    fs.writeFile('./data/posts.json', JSON.stringify(posts), err => {
+      if (err) throw err
+       
+      res.redirect('/archive')
+    })
+  })
+})
+
 
 app.listen(5000, err => {
   if (err) console.log(err)
