@@ -32,6 +32,7 @@ a:hover {
 .nav a {
   display: inline-block;
   padding: 5px 10px;
+  
 }
 
 
@@ -45,6 +46,7 @@ a:hover {
   padding: 100px 0 30px 0;
   font-size: 1.7rem;
   max-width: 60%;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
 }
 
 .button {
@@ -52,6 +54,8 @@ a:hover {
   padding: 10px 20px;
   background: tomato;
   color: white;
+  border-radius: 25px;
+  font-family: cursive;
 }
 
 .form {
@@ -77,6 +81,23 @@ a:hover {
     padding: 10px 20px;
 }
 
+
+.posts {
+  background-color: cornflowerblue;
+  border-radius: 25px;
+}
+
+.api {
+  background-color: rgb(35, 211, 50);
+  border-radius: 25px;
+  
+}
+
+.archive1 {
+  background-color: rgb(170, 27, 146);
+  border-radius: 25px;
+  
+}
 
 .function {
   display: flex;
